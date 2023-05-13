@@ -14,6 +14,14 @@ pipeline {
                 git branch: 'main', url: 'https://github.com/Nousst/maven-test.git'
             }
         }
+        stage('sonarQube-scan') {
+          steps{
+           withSonarQubeEnv(sonarQube) {
+           sh 'mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=Nousst_geolocation1'
+           }
+           
+           }
+        }
         stage('Code Build') {
             steps {
                 sh 'mvn clean install package'
