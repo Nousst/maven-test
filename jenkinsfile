@@ -17,7 +17,7 @@ pipeline {
         stage('sonarQube-scan') {
           steps{
            withSonarQubeEnv('sonarQube') {
-           sh 'mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=Nousst_geolocation1'
+           sh 'mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=Nousst_maven-test'
            }
            
            }
